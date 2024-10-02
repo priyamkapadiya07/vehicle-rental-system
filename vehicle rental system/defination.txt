@@ -1,0 +1,105 @@
+-> Project Definition:
+
+-> Project Name: Vehicle Rental System
+
+-> Description: A Java-based Vehicle Rental System that allows users to book and unbook vehicles. The system retrieves vehicle data from a database, stores it in a linked list, and performs booking and unbooking operations. The system also generates bills for booked vehicles and prints the vehicle data to a file using a BufferedWriter.
+
+-> Components:
+
+-> Database:
+-> Table: vehicles
+
+id (primary key): unique identifier for each vehicle
+type: type of vehicle (e.g. car, truck, motorcycle)
+model: model of vehicle
+availability: boolean indicating whether the vehicle is available for rental
+
+-> Table: bills
+
+id (primary key): unique identifier for each bill
+vehicle_id (foreign key): references the id column in the vehicles table
+bill_amount: amount of the bill
+
+-> Table: customers
+
+id (primary key): unique identifier for each customer
+name: customer name
+email: customer email
+phone: customer phone number
+city: customer city
+
+-> Table: bookings
+
+id (primary key): unique identifier for each booking
+vehicle_id (foreign key): references the id column in the vehicles table
+customer_id (foreign key): references the id column in the customers table
+booking_date: date of booking
+return_date: expected return date
+
+-> Java Classes:
+
+Vehicle.java: Represents a vehicle with attributes such as vehicle ID, type, model, and availability.
+VehicleLinkedList.java: A linked list implementation to store vehicle data retrieved from the database.
+DatabaseConnector.java: A class to connect to the database and perform SQL queries.
+VehicleRentalSystem.java: The main class that handles user input, performs booking and unbooking operations, and generates bills.
+FileWriter.java: A class to write vehicle data to a file using a BufferedWriter.
+BillGenerator.java: A class to generate bills for booked vehicles.
+Customer.java: Represents a customer with attributes such as customer ID, name, email, and phone number.
+
+-> SQL Queries:
+Procedures:
+sp_get_all_vehicles: Retrieves all vehicle data from the database.
+sp_book_vehicle: Updates the availability of a vehicle to "booked".
+sp_unbook_vehicle: Updates the availability of a vehicle to "unbooked".
+sp_get_customer: Retrieves customer data from the database.
+sp_make_booking: Creates a new booking for a customer.
+Triggers:
+tr_booked_vehicle: Automatically generates a bill for a booked vehicle.
+Data Structure:
+Linked list to store vehicle data retrieved from the database.
+
+-> Project Structure:
+
+-> src folder:
+Vehicle.java
+VehicleLinkedList.java
+DatabaseConnector.java
+VehicleRentalSystem.java
+FileWriter.java
+BillGenerator.java
+Customer.java
+sql folder:
+create_database.sql: Creates the database and tables.
+procedures.sql: Defines the stored procedures.
+triggers.sql: Defines the triggers.
+
+How to Make this Project:
+
+Step 1: Create the Database and Tables
+
+Create a new database using your preferred RDBMS.
+Execute the create_database.sql script to create the vehicles, bills, customers, and bookings tables.
+Step 2: Create the Stored Procedures and Triggers
+
+Execute the procedures.sql script to define the stored procedures.
+Execute the triggers.sql script to define the triggers.
+Step 3: Implement the Java Classes
+
+Create the Vehicle.java class to represent a vehicle.
+Create the VehicleLinkedList.java class to implement a linked list to store vehicle data.
+Create the DatabaseConnector.java class to connect to the database and perform SQL queries.
+Create the VehicleRentalSystem.java class to handle user input, perform booking and unbooking operations, and generate bills.
+Create the FileWriter.java class to write vehicle data to a file using a BufferedWriter.
+Create the BillGenerator.java class to generate bills for booked vehicles.
+Create the Customer.java class to represent a customer and implement a linked list to store customer data.
+Step 4: Implement the Main Method
+
+In the VehicleRentalSystem.java class, implement the main method to handle user input and perform the following operations:
+Retrieve all vehicle data from the database and store it in the linked list.
+Allow users to book and unbook vehicles.
+Generate bills for booked vehicles.
+Print vehicle data to a file using the FileWriter class.
+Step 5: Test the Project
+
+Run the VehicleRentalSystem.java class to test the project.
+Verify that the project retrieves vehicle data from the database, performs booking and unbooking operations, generates bills, and prints vehicle data to a file.
